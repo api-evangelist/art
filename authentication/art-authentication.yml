@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/art-openapi.yml
+docs: https://developers.artsy.net/v2/docs/authentication
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  model: xapp-token
+  token_endpoint: https://api.artsy.net/api/tokens/xapp_token
+  grant: client_credentials
+  notes: >-
+    Register an application at developers.artsy.net to obtain a client_id and client_secret,
+    then POST them (form-urlencoded or JSON) to /tokens/xapp_token to receive an xapp_token
+    with an expires_at. Send the token in the X-Xapp-Token header on subsequent requests.
+    This is anonymous application-level access; a separate access_token flow exists for
+    user-scoped access.
+schemes:
+- name: XappToken
+  type: apiKey
+  in: header
+  parameter: X-Xapp-Token
+  description: Application-level token obtained from POST /tokens/xapp_token by exchanging client_id
+    and client_secret. Sent in the X-Xapp-Token request header.
+  sources:
+  - openapi/art-openapi.yml
