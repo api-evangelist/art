@@ -1,0 +1,162 @@
+openapi: 3.1.0
+info:
+  title: Artsy Public Applications Fairs API
+  version: 2.0.0
+  description: 'The Artsy Public API (v2) is a HAL (Hypertext Application Language) hypermedia REST API that provides access to Artsy''s database of artists, artworks, genes (Art Genome Project categories), shows, partners, fairs, and auction sales. Authentication uses an application-level X-Xapp-Token obtained by exchanging a client_id and client_secret. NOTE: Artsy has announced that the public API is being retired and may be taken down without notice; the Partner API remains for approved partners.
+
+
+    Derived by API Evangelist from the live HAL root at https://api.artsy.net/api and the published documentation at https://developers.artsy.net/.'
+  termsOfService: https://www.artsy.net/api-terms
+  contact:
+    name: Artsy Developers
+    url: https://developers.artsy.net/
+  x-apievangelist-note: Derived from live HAL discovery + docs; not published by Artsy as OpenAPI.
+servers:
+- url: https://api.artsy.net/api
+  description: Artsy Public API v2
+security:
+- XappToken: []
+tags:
+- name: Fairs
+paths:
+  /fairs:
+    get:
+      operationId: listFairs
+      summary: List fairs
+      tags:
+      - Fairs
+      description: Art fairs
+      parameters:
+      - name: status
+        in: query
+        required: false
+        description: Filter by status.
+        schema:
+          type: string
+      - name: total_count
+        in: query
+        required: false
+        description: Set to 1 to include the total item count in the response (counting is not free and off by default).
+        schema:
+          type: integer
+      - name: size
+        in: query
+        required: false
+        description: Limit the number of embedded items returned.
+        schema:
+          type: integer
+      - name: cursor
+        in: query
+        required: false
+        description: A position within the results set for cursor-based pagination.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        required: false
+        description: Skip this number of items (mutually exclusive with cursor).
+        schema:
+          type: integer
+      - name: sample
+        in: query
+        required: false
+        description: Redirect to a random element in the collection.
+        schema:
+          type: string
+      - name: sort
+        in: query
+        required: false
+        description: Sort order for the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A paginated set of fairs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HALCollection'
+        '401':
+          $ref: '#/components/responses/Error'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /fairs/{id}:
+    get:
+      operationId: getFair
+      summary: Get a fair
+      tags:
+      - Fairs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The fair id.
+      responses:
+        '200':
+          description: A fair
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HALResource'
+        '404':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+components:
+  schemas:
+    HALCollection:
+      type: object
+      description: A paginated HAL set.
+      properties:
+        total_count:
+          type: integer
+          description: Total items (only present when total_count=1 is requested).
+        _links:
+          type: object
+          description: self and next links (next absent on the last page).
+        _embedded:
+          type: object
+          description: The embedded array of items.
+    HALResource:
+      type: object
+      description: A HAL resource with hypermedia _links and _embedded relations.
+      properties:
+        id:
+          type: string
+        _links:
+          type: object
+        _embedded:
+          type: object
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Error category, e.g. auth_error, param_error, other_error.
+        message:
+          type: string
+          description: Human-readable error message.
+        detail:
+          type: object
+          description: Optional per-field validation detail.
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Too many requests (rate limit is 5 requests/second per application).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    XappToken:
+      type: apiKey
+      in: header
+      name: X-Xapp-Token
+      description: Application-level token obtained from POST /tokens/xapp_token by exchanging client_id and client_secret. Sent in the X-Xapp-Token request header.

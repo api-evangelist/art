@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: searched
+source: https://developers.artsy.net/v2/docs/rate_limiting
+rate_limits:
+  - scope: per client application ID
+    limit_count: 5
+    interval: second
+    limit: 5 requests/second
+    status_on_exceed: 429
+    error: Too many requests
+    behavior: throttled (not blacklisted by default)
+    headers_documented: false
+    increase_available: false
+    notes: >-
+      Approx. 300 requests/minute. Exceeding the limit returns HTTP 429; clients are throttled
+      rather than blacklisted. No mechanism to request higher limits is documented.

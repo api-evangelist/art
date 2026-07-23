@@ -1,0 +1,8 @@
+generated: '2026-07-18'
+method: derived
+source: arazzo/*.yml
+workflows:
+  - file: art-find-artist-artworks.yml
+    workflowId: findArtistArtworks
+    title: Find an artist and list their artworks
+    summary: Mint an XApp token, search for an artist by term, then page that artist's artworks.

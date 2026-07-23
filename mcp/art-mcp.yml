@@ -1,0 +1,45 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/art-openapi.yml
+server:
+  name: art
+  transport: http
+  url: null
+  note: >-
+    No official hosted/remote MCP server is published by Artsy. This is a candidate tool list
+    derived from the read-only Artsy Public API operations, suitable for generating an MCP server.
+tools:
+  - name: search
+    description: Full-text search across Artsy resources.
+    source_operation: openapi/art-openapi.yml#search
+  - name: list_artists
+    description: List/search artists.
+    source_operation: openapi/art-openapi.yml#listArtists
+  - name: get_artist
+    description: Get a single artist by id.
+    source_operation: openapi/art-openapi.yml#getArtist
+  - name: list_artworks
+    description: List/filter artworks.
+    source_operation: openapi/art-openapi.yml#listArtworks
+  - name: get_artwork
+    description: Get a single artwork by id.
+    source_operation: openapi/art-openapi.yml#getArtwork
+  - name: list_genes
+    description: List Art Genome Project genes.
+    source_operation: openapi/art-openapi.yml#listGenes
+  - name: get_gene
+    description: Get a single gene by id.
+    source_operation: openapi/art-openapi.yml#getGene
+  - name: list_shows
+    description: List gallery and museum shows.
+    source_operation: openapi/art-openapi.yml#listShows
+  - name: list_partners
+    description: List partners (galleries, museums, institutions).
+    source_operation: openapi/art-openapi.yml#listPartners
+  - name: list_sales
+    description: List auction sales.
+    source_operation: openapi/art-openapi.yml#listSales
+  - name: list_fairs
+    description: List art fairs.
+    source_operation: openapi/art-openapi.yml#listFairs

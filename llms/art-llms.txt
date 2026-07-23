@@ -1,0 +1,30 @@
+# Artsy Public API
+
+> Artsy's Public API (v2) is a HAL hypermedia REST API exposing Artsy's database of artists,
+> artworks, genes (Art Genome Project categories), shows, partners, fairs, and auction sales.
+> Authentication uses an application-level X-Xapp-Token minted from a client_id/client_secret.
+> Note: Artsy has announced the public API is being retired and may be taken down without notice.
+
+## APIs
+- [Artsy Public API v2](https://api.artsy.net/api): HAL root listing every resource link.
+- [Developer Documentation](https://developers.artsy.net/): Public API v2 docs.
+- [Authentication](https://developers.artsy.net/v2/docs/authentication): XApp token flow.
+- [Metaphysics GraphQL API](https://github.com/artsy/metaphysics): Artsy's GraphQL API (separate surface).
+
+## Specs
+- [OpenAPI (derived)](openapi/art-openapi.yml): 46 operations derived from the live HAL root + docs.
+- [Authentication profile](authentication/art-authentication.yml)
+- [Conventions](conventions/art-conventions.yml): HAL, cursor pagination, rate limiting, error envelope.
+- [Error catalog](errors/art-problem-types.yml)
+- [Rate limits](rate-limits/art-rate-limits.yml): 5 requests/second per application.
+- [Lifecycle](lifecycle/art-lifecycle.yml): v2, retiring.
+- [Data model](data-model/art-data-model.yml): artist/artwork/gene/show/partner/sale graph.
+- [Conformance](conformance/art-conformance.yml)
+- [MCP tools (candidate)](mcp/art-mcp.yml)
+
+## Docs
+- [Pagination](https://developers.artsy.net/v2/docs/pagination)
+- [Errors](https://developers.artsy.net/v2/docs/errors)
+- [Rate Limiting](https://developers.artsy.net/v2/docs/rate_limiting)
+- [Terms of Use](https://www.artsy.net/api-terms)
+- [GitHub org](https://github.com/artsy)

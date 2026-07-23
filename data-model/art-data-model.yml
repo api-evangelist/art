@@ -1,0 +1,91 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/art-openapi.yml (HAL relations + collection filter params) + live HAL root
+note: >-
+  Entity-relationship graph derived from the Artsy HAL link relations and the id-based filter
+  parameters exposed on each collection (e.g. /artworks?artist_id, ?partner_id, ?show_id).
+entities:
+  - name: Artist
+    endpoint: /artists/{id}
+    id_field: id
+  - name: Artwork
+    endpoint: /artworks/{id}
+    id_field: id
+  - name: Gene
+    endpoint: /genes/{id}
+    id_field: id
+    note: Art Genome Project category/characteristic.
+  - name: Partner
+    endpoint: /partners/{id}
+    id_field: id
+    note: Gallery, museum, or institution.
+  - name: Show
+    endpoint: /shows/{id}
+    id_field: id
+  - name: Fair
+    endpoint: /fairs/{id}
+    id_field: id
+  - name: Sale
+    endpoint: /sales/{id}
+    id_field: id
+  - name: SaleArtwork
+    endpoint: /sale_artworks/{id}
+    id_field: id
+  - name: Edition
+    endpoint: /editions/{id}
+  - name: Image
+    endpoint: /images/{id}
+relationships:
+  - from: Artist
+    to: Artwork
+    type: has_many
+    via: artist_id
+    evidence: /artworks?artist_id
+  - from: Artist
+    to: Gene
+    type: has_many
+    via: artist_id
+    evidence: /genes?artist_id
+  - from: Artwork
+    to: Artist
+    type: belongs_to
+    via: artist_id
+  - from: Artwork
+    to: Partner
+    type: belongs_to
+    via: partner_id
+    evidence: /artworks?partner_id
+  - from: Artwork
+    to: Gene
+    type: has_many
+    via: artwork_id
+    evidence: /genes?artwork_id
+  - from: Show
+    to: Partner
+    type: belongs_to
+    via: partner_id
+    evidence: /shows?partner_id
+  - from: Show
+    to: Fair
+    type: belongs_to
+    via: fair_id
+    evidence: /shows?fair_id
+  - from: Show
+    to: Artwork
+    type: has_many
+    via: show_id
+    evidence: /artworks?show_id
+  - from: Sale
+    to: SaleArtwork
+    type: has_many
+    via: sale_id
+    evidence: /sale_artworks?sale_id
+  - from: Fair
+    to: Show
+    type: has_many
+    via: fair_id
+  - from: Edition
+    to: Artwork
+    type: belongs_to
+    via: artwork_id
+    evidence: /editions/{id}?artwork_id

@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/art-openapi.yml
+skills:
+  - file: art-find-artist-artworks.md
+    name: Find an artist and browse their artworks on Artsy
+    api: openapi/art-openapi.yml
+    operations: [createXappToken, search, listArtists, getArtist, listArtworks]
+  - file: art-browse-genes-and-shows.md
+    name: Browse Artsy genes and current shows
+    api: openapi/art-openapi.yml
+    operations: [createXappToken, listGenes, getGene, listShows, listArtworks]

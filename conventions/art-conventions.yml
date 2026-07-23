@@ -1,0 +1,66 @@
+generated: '2026-07-18'
+method: searched
+source: https://developers.artsy.net/v2/docs
+api: openapi/art-openapi.yml
+summary: >-
+  Cross-cutting request/response semantics for the Artsy Public API v2. The API is a HAL
+  hypermedia REST API (application/vnd.api+json style HAL with _links and _embedded), uses an
+  application-level X-Xapp-Token for auth, and prefers cursor-based pagination.
+authentication:
+  style: xapp-token (apiKey header X-Xapp-Token)
+  docs: https://developers.artsy.net/v2/docs/authentication
+hypermedia:
+  format: HAL
+  docs: https://developers.artsy.net/v2/docs/links_between_resources
+  links_field: _links
+  embedded_field: _embedded
+  notes: Resources are linked via _links (self, next, related resources); collections embed items under _embedded.
+pagination:
+  style: cursor-preferred (offset also supported, mutually exclusive with cursor)
+  docs: https://developers.artsy.net/v2/docs/pagination
+  params:
+    - name: size
+      description: Limit the number of embedded items returned.
+    - name: cursor
+      description: A position within the results set (cursor-based paging).
+    - name: offset
+      description: Skip this number of items; mutually exclusive with cursor (combining both returns 400).
+    - name: total_count
+      description: Pass total_count=1 to include the total count; never set by default because counting is expensive.
+    - name: sample
+      description: Redirect to a random element in the collection.
+  response_fields:
+    - _links.self
+    - _links.next   # absent on the last page
+    - total_count   # only when total_count=1 requested
+    - _embedded     # the page of items
+  caveat: total_count is approximate and should not be treated as an exact expectation of returned results.
+idempotency:
+  supported: false
+  notes: >-
+    The public API surface is read-oriented (GET) plus a token-mint POST; no idempotency-key
+    header is documented. No Idempotency pointer emitted.
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://developers.artsy.net/v2/docs
+error_envelope:
+  format: custom-json
+  fields: [type, message, detail]
+  types: [auth_error, param_error, other_error]
+  catalog: errors/art-problem-types.yml
+rate_limiting:
+  limit: 5 requests/second per client application ID
+  status_on_exceed: 429
+  behavior: throttled (not blacklisted by default)
+  docs: https://developers.artsy.net/v2/docs/rate_limiting
+  catalog: rate-limits/art-rate-limits.yml
+machine_description:
+  supported: true
+  docs: https://developers.artsy.net/v2/docs/machine_description
+  notes: The API is self-describing; OPTIONS-style machine descriptions document each resource.
+cross_links:
+  errors: errors/art-problem-types.yml
+  lifecycle: lifecycle/art-lifecycle.yml
+  authentication: authentication/art-authentication.yml
+  rate_limits: rate-limits/art-rate-limits.yml

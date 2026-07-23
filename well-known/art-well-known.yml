@@ -1,0 +1,21 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of /.well-known/* on Artsy hosts
+hosts:
+  - host: https://api.artsy.net
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+  - host: https://artsy.net
+    documents:
+      - path: /.well-known/security.txt
+        status: 530
+        note: Cloudflare origin error on probe.
+summary: >-
+  No /.well-known discovery documents (security.txt, OpenID Connect, OAuth authorization server,
+  api-catalog, ai-plugin) were served with a 200 on any Artsy host. Absence recorded as valid data;
+  no WellKnown/SecurityTxt pointer emitted.

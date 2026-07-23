@@ -1,25 +1,359 @@
 aid: art
-name: art
-description: art is a company surfaced as a portfolio company of slow-ventures and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: Artsy
+description: >-
+  Artsy (art.sy) is the online marketplace and platform for discovering, buying, and selling fine
+  art, connecting collectors with galleries, museums, art fairs, and auction houses worldwide.
+  Artsy operates a public developer program: the Artsy Public API (v2) is a HAL hypermedia REST
+  API exposing Artsy's database of artists, artworks, genes (the Art Genome Project's classification
+  of artistic characteristics), gallery and museum shows, partners, art fairs, and auction sales.
+  Authentication uses an application-level X-Xapp-Token minted by exchanging a client_id and
+  client_secret. Artsy also runs the Metaphysics GraphQL API that powers its own web and mobile
+  apps. Artsy has announced that the public REST API is being retired and may be taken down without
+  notice; the Partner API remains available to approved partners. Surfaced as a slow-ventures
+  portfolio company and enriched by the API Evangelist pipeline from Artsy's live API and docs.
 url: https://raw.githubusercontent.com/api-evangelist/art/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - slow-ventures
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://github.com/artsy.png
 tags:
+- Art
+- Marketplace
+- Culture
+- Museums
+- Galleries
+- Auctions
+- Media
+- Hypermedia
 - Company
-apis: []
+apis:
+- aid: art:art-applications-api
+  name: Artsy Applications API
+  description: The Applications API from Artsy — 2 operation(s) for applications.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/art-applications-api-openapi.yml
+- aid: art:art-artists-api
+  name: Artsy Artists API
+  description: The Artists API from Artsy — 2 operation(s) for artists.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Artists
+  properties:
+  - type: OpenAPI
+    url: openapi/art-artists-api-openapi.yml
+- aid: art:art-artworks-api
+  name: Artsy Artworks API
+  description: The Artworks API from Artsy — 2 operation(s) for artworks.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Artworks
+  properties:
+  - type: OpenAPI
+    url: openapi/art-artworks-api-openapi.yml
+- aid: art:art-authentication-api
+  name: Artsy Authentication API
+  description: The Authentication API from Artsy — 1 operation(s) for authentication.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/art-authentication-api-openapi.yml
+- aid: art:art-bidder-positions-api
+  name: Artsy Bidder Positions API
+  description: The Bidder Positions API from Artsy — 2 operation(s) for bidder positions.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Bidder Positions
+  properties:
+  - type: OpenAPI
+    url: openapi/art-bidder-positions-api-openapi.yml
+- aid: art:art-bidders-api
+  name: Artsy Bidders API
+  description: The Bidders API from Artsy — 2 operation(s) for bidders.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Bidders
+  properties:
+  - type: OpenAPI
+    url: openapi/art-bidders-api-openapi.yml
+- aid: art:art-collection-items-api
+  name: Artsy Collection Items API
+  description: The Collection Items API from Artsy — 2 operation(s) for collection items.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Collection Items
+  properties:
+  - type: OpenAPI
+    url: openapi/art-collection-items-api-openapi.yml
+- aid: art:art-collections-api
+  name: Artsy Collections API
+  description: The Collections API from Artsy — 2 operation(s) for collections.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/art-collections-api-openapi.yml
+- aid: art:art-collector-profiles-api
+  name: Artsy Collector Profiles API
+  description: The Collector Profiles API from Artsy — 2 operation(s) for collector profiles.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Collector Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/art-collector-profiles-api-openapi.yml
+- aid: art:art-devices-api
+  name: Artsy Devices API
+  description: The Devices API from Artsy — 2 operation(s) for devices.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/art-devices-api-openapi.yml
+- aid: art:art-editions-api
+  name: Artsy Editions API
+  description: The Editions API from Artsy — 1 operation(s) for editions.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Editions
+  properties:
+  - type: OpenAPI
+    url: openapi/art-editions-api-openapi.yml
+- aid: art:art-fairs-api
+  name: Artsy Fairs API
+  description: The Fairs API from Artsy — 2 operation(s) for fairs.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Fairs
+  properties:
+  - type: OpenAPI
+    url: openapi/art-fairs-api-openapi.yml
+- aid: art:art-genes-api
+  name: Artsy Genes API
+  description: The Genes API from Artsy — 2 operation(s) for genes.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Genes
+  properties:
+  - type: OpenAPI
+    url: openapi/art-genes-api-openapi.yml
+- aid: art:art-images-api
+  name: Artsy Images API
+  description: The Images API from Artsy — 1 operation(s) for images.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/art-images-api-openapi.yml
+- aid: art:art-partner-communications-api
+  name: Artsy Partner Communications API
+  description: The Partner Communications API from Artsy — 2 operation(s) for partner communications.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Partner Communications
+  properties:
+  - type: OpenAPI
+    url: openapi/art-partner-communications-api-openapi.yml
+- aid: art:art-partner-contacts-api
+  name: Artsy Partner Contacts API
+  description: The Partner Contacts API from Artsy — 2 operation(s) for partner contacts.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Partner Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/art-partner-contacts-api-openapi.yml
+- aid: art:art-partners-api
+  name: Artsy Partners API
+  description: The Partners API from Artsy — 2 operation(s) for partners.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Partners
+  properties:
+  - type: OpenAPI
+    url: openapi/art-partners-api-openapi.yml
+- aid: art:art-profiles-api
+  name: Artsy Profiles API
+  description: The Profiles API from Artsy — 2 operation(s) for profiles.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/art-profiles-api-openapi.yml
+- aid: art:art-sale-artworks-api
+  name: Artsy Sale Artworks API
+  description: The Sale Artworks API from Artsy — 2 operation(s) for sale artworks.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Sale Artworks
+  properties:
+  - type: OpenAPI
+    url: openapi/art-sale-artworks-api-openapi.yml
+- aid: art:art-sales-api
+  name: Artsy Sales API
+  description: The Sales API from Artsy — 2 operation(s) for sales.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Sales
+  properties:
+  - type: OpenAPI
+    url: openapi/art-sales-api-openapi.yml
+- aid: art:art-search-api
+  name: Artsy Search API
+  description: The Search API from Artsy — 1 operation(s) for search.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/art-search-api-openapi.yml
+- aid: art:art-shows-api
+  name: Artsy Shows API
+  description: The Shows API from Artsy — 2 operation(s) for shows.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Shows
+  properties:
+  - type: OpenAPI
+    url: openapi/art-shows-api-openapi.yml
+- aid: art:art-status-api
+  name: Artsy Status API
+  description: The Status API from Artsy — 1 operation(s) for status.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/art-status-api-openapi.yml
+- aid: art:art-user-fair-actions-api
+  name: Artsy User Fair Actions API
+  description: The User Fair Actions API from Artsy — 2 operation(s) for user fair actions.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - User Fair Actions
+  properties:
+  - type: OpenAPI
+    url: openapi/art-user-fair-actions-api-openapi.yml
+- aid: art:art-users-api
+  name: Artsy Users API
+  description: The Users API from Artsy — 3 operation(s) for users.
+  humanURL: https://developers.artsy.net/
+  baseURL: https://api.artsy.net/api
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/art-users-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DeveloperPortal
+  url: https://developers.artsy.net/
+- type: Documentation
+  url: https://developers.artsy.net/v2/docs
+- type: APIReference
+  url: https://developers.artsy.net/v2
+- type: Authentication
+  url: authentication/art-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/art-agentic-access.yml
+- type: Conventions
+  url: conventions/art-conventions.yml
+- type: ErrorCatalog
+  url: errors/art-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/art-lifecycle.yml
+- type: StatusPage
+  url: https://api.artsy.net/api/status/
+- type: Deprecation
+  url: https://developers.artsy.net/v2/docs
+- type: RateLimits
+  url: rate-limits/art-rate-limits.yml
+- type: Conformance
+  url: conformance/art-conformance.yml
+- type: DataModel
+  url: data-model/art-data-model.yml
+- type: Components
+  url: components/art-components.yml
+- type: MCPServer
+  url: mcp/art-mcp.yml
+- type: LLMsTxt
+  url: llms/art-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Find an artist and list their artworks
+  url: arazzo/art-find-artist-artworks.yml
+- type: DomainSecurity
+  url: security/art-domain-security.yml
+- type: GraphQL
+  url: https://github.com/artsy/metaphysics
+- type: GitHubOrganization
+  url: https://github.com/artsy
+- type: Blog
+  url: https://artsy.github.io/
+- type: TermsOfService
+  url: https://www.artsy.net/terms
+- type: PrivacyPolicy
+  url: https://www.artsy.net/privacy
 - type: Website
-  url: https://art.sy
+  url: https://www.artsy.net
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

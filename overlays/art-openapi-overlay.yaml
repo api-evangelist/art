@@ -1,0 +1,29 @@
+# generated: '2026-07-18'
+# method: generated
+# source: openapi/art-openapi.yml
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Artsy Public API
+  version: 1.0.0
+extends: openapi/art-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 3
+      x-apievangelist-notes: >-
+        HAL hypermedia API derived from live discovery. Read-only public surface; provider has
+        announced retirement of the public API.
+      x-lifecycle: retiring
+  - target: $.info
+    update:
+      x-artifacts:
+        authentication: authentication/art-authentication.yml
+        conventions: conventions/art-conventions.yml
+        errors: errors/art-problem-types.yml
+        lifecycle: lifecycle/art-lifecycle.yml
+        rate_limits: rate-limits/art-rate-limits.yml
+        data_model: data-model/art-data-model.yml
+  - target: $.tags
+    update:
+      - name: Art Genome Project
+        description: Genes are Artsy's categories/characteristics classifying artists and artworks.

@@ -1,0 +1,42 @@
+generated: '2026-07-18'
+method: searched
+source: https://developers.artsy.net/v2/docs/errors
+format: custom-json
+envelope:
+  fields:
+    type: Error category string (auth_error | param_error | other_error).
+    message: Human-readable error message.
+    detail: Optional object with per-field validation messages.
+  note: >-
+    Artsy does not use RFC 9457 problem+json; errors are a custom JSON envelope. Derived
+    status/type pairs below combine the documented error reference with the OpenAPI responses.
+error_types:
+  - type: auth_error
+    meaning: The access token is invalid, missing, or expired.
+    example: '{"type":"auth_error","message":"The access token is invalid or has expired."}'
+  - type: param_error
+    meaning: One or more request parameters failed validation.
+    example: '{"type":"param_error","message":"Email can''t be blank, Email is invalid.","detail":{"email":["can''t be blank","is invalid"]}}'
+  - type: other_error
+    meaning: General error such as a resource not found.
+    example: '{"type":"other_error","message":"Artist Not Found"}'
+problems:
+  - status: 400
+    title: Bad request / validation error
+    type: param_error
+    remediation: Fix invalid or conflicting parameters (e.g. do not combine cursor and offset).
+  - status: 401
+    title: Unauthorized
+    type: auth_error
+    remediation: Obtain or refresh an X-Xapp-Token via POST /tokens/xapp_token.
+  - status: 404
+    title: Not found
+    type: other_error
+    remediation: Verify the resource id exists.
+  - status: 429
+    title: Too many requests
+    remediation: Back off; the API is rate-limited to 5 requests/second per application ID.
+    source_convention: conventions/art-conventions.yml
+  - status: 500
+    title: Internal server error
+    remediation: Retry later; not expected under normal operation.

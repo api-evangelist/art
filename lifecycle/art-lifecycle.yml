@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://developers.artsy.net/v2/docs
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://developers.artsy.net/v2/docs
+deprecation:
+  status: retiring
+  scope: public-api
+  notes: >-
+    Artsy has announced that the Public API (v2) is in the process of being retired and may be
+    taken down at any time without additional notice. Approved partners should move to the
+    Partner API (v1). This is a documented deprecation/sunset notice, though no dated Sunset
+    header (RFC 8594) is published.
+  policy_url: https://developers.artsy.net/v2/docs
+status_page:
+  url: https://api.artsy.net/api/status/
+  probed_status: '{"status":"good"}'
+  note: Machine-readable status endpoint returning a status string; not a hosted status dashboard.
+sla:
+  url: null
+  uptime_target: null
+deprecated_operations: []

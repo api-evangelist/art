@@ -1,0 +1,54 @@
+openapi: 3.1.0
+info:
+  title: Artsy Public Applications Status API
+  version: 2.0.0
+  description: 'The Artsy Public API (v2) is a HAL (Hypertext Application Language) hypermedia REST API that provides access to Artsy''s database of artists, artworks, genes (Art Genome Project categories), shows, partners, fairs, and auction sales. Authentication uses an application-level X-Xapp-Token obtained by exchanging a client_id and client_secret. NOTE: Artsy has announced that the public API is being retired and may be taken down without notice; the Partner API remains for approved partners.
+
+
+    Derived by API Evangelist from the live HAL root at https://api.artsy.net/api and the published documentation at https://developers.artsy.net/.'
+  termsOfService: https://www.artsy.net/api-terms
+  contact:
+    name: Artsy Developers
+    url: https://developers.artsy.net/
+  x-apievangelist-note: Derived from live HAL discovery + docs; not published by Artsy as OpenAPI.
+servers:
+- url: https://api.artsy.net/api
+  description: Artsy Public API v2
+security:
+- XappToken: []
+tags:
+- name: Status
+paths:
+  /status:
+    get:
+      operationId: getStatus
+      summary: API status
+      tags:
+      - Status
+      description: Health/status of the API.
+      security: []
+      responses:
+        '200':
+          description: Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HALResource'
+components:
+  schemas:
+    HALResource:
+      type: object
+      description: A HAL resource with hypermedia _links and _embedded relations.
+      properties:
+        id:
+          type: string
+        _links:
+          type: object
+        _embedded:
+          type: object
+  securitySchemes:
+    XappToken:
+      type: apiKey
+      in: header
+      name: X-Xapp-Token
+      description: Application-level token obtained from POST /tokens/xapp_token by exchanging client_id and client_secret. Sent in the X-Xapp-Token request header.

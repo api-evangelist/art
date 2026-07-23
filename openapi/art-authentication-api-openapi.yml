@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Artsy Public Applications Authentication API
+  version: 2.0.0
+  description: 'The Artsy Public API (v2) is a HAL (Hypertext Application Language) hypermedia REST API that provides access to Artsy''s database of artists, artworks, genes (Art Genome Project categories), shows, partners, fairs, and auction sales. Authentication uses an application-level X-Xapp-Token obtained by exchanging a client_id and client_secret. NOTE: Artsy has announced that the public API is being retired and may be taken down without notice; the Partner API remains for approved partners.
+
+
+    Derived by API Evangelist from the live HAL root at https://api.artsy.net/api and the published documentation at https://developers.artsy.net/.'
+  termsOfService: https://www.artsy.net/api-terms
+  contact:
+    name: Artsy Developers
+    url: https://developers.artsy.net/
+  x-apievangelist-note: Derived from live HAL discovery + docs; not published by Artsy as OpenAPI.
+servers:
+- url: https://api.artsy.net/api
+  description: Artsy Public API v2
+security:
+- XappToken: []
+tags:
+- name: Authentication
+paths:
+  /tokens/xapp_token:
+    post:
+      operationId: createXappToken
+      summary: Create an XApp token
+      tags:
+      - Authentication
+      description: Exchange your application client_id and client_secret for a short-lived X-Xapp-Token used to authenticate anonymous (application-level) requests.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              properties:
+                client_id:
+                  type: string
+                  description: Your application client ID.
+                client_secret:
+                  type: string
+                  description: Your application client secret.
+      responses:
+        '201':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: xapp_token
+                  token:
+                    type: string
+                  expires_at:
+                    type: string
+                    format: date-time
+        '401':
+          $ref: '#/components/responses/Error'
+components:
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Error category, e.g. auth_error, param_error, other_error.
+        message:
+          type: string
+          description: Human-readable error message.
+        detail:
+          type: object
+          description: Optional per-field validation detail.
+  securitySchemes:
+    XappToken:
+      type: apiKey
+      in: header
+      name: X-Xapp-Token
+      description: Application-level token obtained from POST /tokens/xapp_token by exchanging client_id and client_secret. Sent in the X-Xapp-Token request header.

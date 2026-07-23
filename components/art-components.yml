@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.npmjs.com/org/artsy + https://github.com/artsy
+note: >-
+  First-party client-side / design-system libraries Artsy publishes on npm. These are UI and
+  front-end libraries (distinct from an API SDK), used across Artsy's own web (force) and mobile
+  (eigen) apps.
+families:
+  - family: design-system
+    components:
+      - name: "@artsy/palette"
+        description: Design system library for React components (Artsy's canonical UI kit).
+        registry: npm
+        url: https://www.npmjs.com/package/@artsy/palette
+        repo: https://github.com/artsy/palette
+        official: true
+      - name: "@artsy/icons"
+        description: Canonical source for icons used at Artsy.
+        registry: npm
+        url: https://www.npmjs.com/package/@artsy/icons
+        repo: https://github.com/artsy/icons
+        official: true
+  - family: rendering
+    components:
+      - name: "@artsy/fresnel"
+        description: SSR-compatible approach to CSS media-query based responsive layouts for React.
+        registry: npm
+        url: https://www.npmjs.com/package/@artsy/fresnel
+        repo: https://github.com/artsy/fresnel
+        official: true
+  - family: analytics
+    components:
+      - name: "@artsy/cohesion"
+        description: Artsy's analytics event schema (typed tracking definitions).
+        registry: npm
+        url: https://www.npmjs.com/package/@artsy/cohesion
+        repo: https://github.com/artsy/cohesion
+        official: true
