@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Artsy Public Applications Bidder Positions API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Xapp-Token",
+      "value": "{{X-Xapp-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bidder Positions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List bidder positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artsy.net/api/bidder_positions",
+            "params": [
+              {
+                "name": "sale_artwork_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sale artwork id."
+              },
+              {
+                "name": "total_count",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 to include the total item count in the response (counting is not free and off by default)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of embedded items returned."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A position within the results set for cursor-based pagination."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Skip this number of items (mutually exclusive with cursor)."
+              },
+              {
+                "name": "sample",
+                "value": "",
+                "type": "query",
+                "description": "Redirect to a random element in the collection."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for the results."
+              }
+            ]
+          },
+          "docs": "Bidder positions in an auction"
+        },
+        {
+          "info": {
+            "name": "Get a bidder position",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artsy.net/api/bidder_positions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The bidder_position id."
+              }
+            ]
+          },
+          "docs": "Get a bidder position"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

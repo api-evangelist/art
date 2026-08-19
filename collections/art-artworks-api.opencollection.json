@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Artsy Public Applications Artworks API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Xapp-Token",
+      "value": "{{X-Xapp-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Artworks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List artworks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artsy.net/api/artworks",
+            "params": [
+              {
+                "name": "artist_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by artist id."
+              },
+              {
+                "name": "partner_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by partner id."
+              },
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by show id."
+              },
+              {
+                "name": "similar_to_artwork_id",
+                "value": "",
+                "type": "query",
+                "description": "Return artworks similar to this artwork id."
+              },
+              {
+                "name": "published",
+                "value": "",
+                "type": "query",
+                "description": "Filter by published state."
+              },
+              {
+                "name": "term",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search term."
+              },
+              {
+                "name": "total_count",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 to include the total item count in the response (counting is not free and off by default)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of embedded items returned."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A position within the results set for cursor-based pagination."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Skip this number of items (mutually exclusive with cursor)."
+              },
+              {
+                "name": "sample",
+                "value": "",
+                "type": "query",
+                "description": "Redirect to a random element in the collection."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for the results."
+              }
+            ]
+          },
+          "docs": "Artworks in the Artsy database"
+        },
+        {
+          "info": {
+            "name": "Get a artwork",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artsy.net/api/artworks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The artwork id."
+              }
+            ]
+          },
+          "docs": "Get a artwork"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

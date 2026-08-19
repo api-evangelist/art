@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Artsy Public Applications Search API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Xapp-Token",
+      "value": "{{X-Xapp-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Artsy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artsy.net/api/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query string."
+              }
+            ]
+          },
+          "docs": "Full-text search across Artsy resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

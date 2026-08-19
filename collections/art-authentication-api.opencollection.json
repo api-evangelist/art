@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Artsy Public Applications Authentication API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Xapp-Token",
+      "value": "{{X-Xapp-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an XApp token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.artsy.net/api/tokens/xapp_token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Exchange your application client_id and client_secret for a short-lived X-Xapp-Token used to authenticate anonymous (application-level) requests."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
