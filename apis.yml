@@ -51,6 +51,8 @@ apis:
   humanURL: https://developers.artsy.net/
   baseURL: https://api.artsy.net/api
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -121,6 +123,8 @@ apis:
   humanURL: https://developers.artsy.net/
   baseURL: https://api.artsy.net/api
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -181,6 +185,8 @@ apis:
   humanURL: https://developers.artsy.net/
   baseURL: https://api.artsy.net/api
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
@@ -291,6 +297,8 @@ apis:
   humanURL: https://developers.artsy.net/
   baseURL: https://api.artsy.net/api
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
