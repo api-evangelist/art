@@ -7,54 +7,60 @@ info:
   version: 1.0.0
   summary: Mint an XApp token, search for an artist, then list that artist's artworks.
 sourceDescriptions:
-  - name: artsy
-    url: ../openapi/art-openapi.yml
-    type: openapi
+- name: artistsApi
+  url: ../openapi/art-artists-api-openapi.yml
+  type: openapi
+- name: artworksApi
+  url: ../openapi/art-artworks-api-openapi.yml
+  type: openapi
+- name: authenticationApi
+  url: ../openapi/art-authentication-api-openapi.yml
+  type: openapi
 workflows:
-  - workflowId: findArtistArtworks
-    summary: Authenticate, find an artist by term, and page their artworks.
-    inputs:
-      type: object
-      properties:
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        term:
-          type: string
-          description: Artist name to search for.
-    steps:
-      - stepId: mintToken
-        operationId: createXappToken
-        requestBody:
-          contentType: application/x-www-form-urlencoded
-          payload:
-            client_id: $inputs.client_id
-            client_secret: $inputs.client_secret
-        outputs:
-          token: $response.body#/token
-      - stepId: findArtist
-        operationId: listArtists
-        parameters:
-          - name: X-Xapp-Token
-            in: header
-            value: $steps.mintToken.outputs.token
-          - name: term
-            in: query
-            value: $inputs.term
-        outputs:
-          artist_id: $response.body#/_embedded/artists/0/id
-      - stepId: listArtistArtworks
-        operationId: listArtworks
-        parameters:
-          - name: X-Xapp-Token
-            in: header
-            value: $steps.mintToken.outputs.token
-          - name: artist_id
-            in: query
-            value: $steps.findArtist.outputs.artist_id
-          - name: size
-            in: query
-            value: 25
-        outputs:
-          artworks: $response.body#/_embedded/artworks
+- workflowId: findArtistArtworks
+  summary: Authenticate, find an artist by term, and page their artworks.
+  inputs:
+    type: object
+    properties:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+      term:
+        type: string
+        description: Artist name to search for.
+  steps:
+  - stepId: mintToken
+    operationId: createXappToken
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        client_id: $inputs.client_id
+        client_secret: $inputs.client_secret
+    outputs:
+      token: $response.body#/token
+  - stepId: findArtist
+    operationId: listArtists
+    parameters:
+    - name: X-Xapp-Token
+      in: header
+      value: $steps.mintToken.outputs.token
+    - name: term
+      in: query
+      value: $inputs.term
+    outputs:
+      artist_id: $response.body#/_embedded/artists/0/id
+  - stepId: listArtistArtworks
+    operationId: listArtworks
+    parameters:
+    - name: X-Xapp-Token
+      in: header
+      value: $steps.mintToken.outputs.token
+    - name: artist_id
+      in: query
+      value: $steps.findArtist.outputs.artist_id
+    - name: size
+      in: query
+      value: 25
+    outputs:
+      artworks: $response.body#/_embedded/artworks
