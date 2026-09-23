@@ -1,31 +1,7 @@
 {
   "provider": "art",
   "sources": [
-    "art-applications-api-openapi.yml",
-    "art-artists-api-openapi.yml",
-    "art-artworks-api-openapi.yml",
-    "art-authentication-api-openapi.yml",
-    "art-bidder-positions-api-openapi.yml",
-    "art-bidders-api-openapi.yml",
-    "art-collection-items-api-openapi.yml",
-    "art-collections-api-openapi.yml",
-    "art-collector-profiles-api-openapi.yml",
-    "art-devices-api-openapi.yml",
-    "art-editions-api-openapi.yml",
-    "art-fairs-api-openapi.yml",
-    "art-genes-api-openapi.yml",
-    "art-images-api-openapi.yml",
-    "art-partner-communications-api-openapi.yml",
-    "art-partner-contacts-api-openapi.yml",
-    "art-partners-api-openapi.yml",
-    "art-profiles-api-openapi.yml",
-    "art-sale-artworks-api-openapi.yml",
-    "art-sales-api-openapi.yml",
-    "art-search-api-openapi.yml",
-    "art-shows-api-openapi.yml",
-    "art-status-api-openapi.yml",
-    "art-user-fair-actions-api-openapi.yml",
-    "art-users-api-openapi.yml"
+    "_original/art-openapi.yml"
   ],
   "outputs": [
     "art-applications-api-openapi.yml",
@@ -57,6 +33,36 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "art-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "art-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-artists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-artworks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-bidder-positions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-bidders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-collection-items-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-collector-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-editions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-fairs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-genes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-partner-communications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-partner-contacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-partners-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-sale-artworks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-sales-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-shows-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-user-fair-actions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "art-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
