@@ -116,28 +116,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Error category, e.g. auth_error, param_error, other_error.
-        message:
-          type: string
-          description: Human-readable error message.
-        detail:
-          type: object
-          description: Optional per-field validation detail.
-    HALResource:
-      type: object
-      description: A HAL resource with hypermedia _links and _embedded relations.
-      properties:
-        id:
-          type: string
-        _links:
-          type: object
-        _embedded:
-          type: object
     HALCollection:
       type: object
       description: A paginated HAL set.
@@ -151,6 +129,28 @@ components:
         _embedded:
           type: object
           description: The embedded array of items.
+    HALResource:
+      type: object
+      description: A HAL resource with hypermedia _links and _embedded relations.
+      properties:
+        id:
+          type: string
+        _links:
+          type: object
+        _embedded:
+          type: object
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Error category, e.g. auth_error, param_error, other_error.
+        message:
+          type: string
+          description: Human-readable error message.
+        detail:
+          type: object
+          description: Optional per-field validation detail.
   securitySchemes:
     XappToken:
       type: apiKey
