@@ -108,33 +108,7 @@ paths:
         '401':
           $ref: '#/components/responses/Error'
 components:
-  responses:
-    RateLimited:
-      description: Too many requests (rate limit is 5 requests/second per application).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Error:
-      description: Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    HALCollection:
-      type: object
-      description: A paginated HAL set.
-      properties:
-        total_count:
-          type: integer
-          description: Total items (only present when total_count=1 is requested).
-        _links:
-          type: object
-          description: self and next links (next absent on the last page).
-        _embedded:
-          type: object
-          description: The embedded array of items.
     HALResource:
       type: object
       description: A HAL resource with hypermedia _links and _embedded relations.
@@ -157,6 +131,32 @@ components:
         detail:
           type: object
           description: Optional per-field validation detail.
+    HALCollection:
+      type: object
+      description: A paginated HAL set.
+      properties:
+        total_count:
+          type: integer
+          description: Total items (only present when total_count=1 is requested).
+        _links:
+          type: object
+          description: self and next links (next absent on the last page).
+        _embedded:
+          type: object
+          description: The embedded array of items.
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Too many requests (rate limit is 5 requests/second per application).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     XappToken:
       type: apiKey

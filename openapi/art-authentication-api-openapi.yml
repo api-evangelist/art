@@ -59,6 +59,13 @@ paths:
         '401':
           $ref: '#/components/responses/Error'
 components:
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -72,13 +79,6 @@ components:
         detail:
           type: object
           description: Optional per-field validation detail.
-  responses:
-    Error:
-      description: Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     XappToken:
       type: apiKey
