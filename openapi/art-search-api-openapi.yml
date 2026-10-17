@@ -40,14 +40,17 @@ paths:
         '401':
           $ref: '#/components/responses/Error'
 components:
-  responses:
-    Error:
-      description: Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    HALResource:
+      type: object
+      description: A HAL resource with hypermedia _links and _embedded relations.
+      properties:
+        id:
+          type: string
+        _links:
+          type: object
+        _embedded:
+          type: object
     Error:
       type: object
       properties:
@@ -60,16 +63,13 @@ components:
         detail:
           type: object
           description: Optional per-field validation detail.
-    HALResource:
-      type: object
-      description: A HAL resource with hypermedia _links and _embedded relations.
-      properties:
-        id:
-          type: string
-        _links:
-          type: object
-        _embedded:
-          type: object
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     XappToken:
       type: apiKey
